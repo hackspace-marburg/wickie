@@ -1,0 +1,15 @@
+version: "3"
+services:
+  html2rss-web:
+    image: gilcreator/html2rss-web
+    ports:
+      - "3000:3161"
+    volumes:
+      - type: bind
+        source: ./feeds.yml
+        target: /app/config/feeds.yml
+        read_only: true
+    environment:
+      - RACK_ENV=production
+        # - HEALTH_CHECK_USERNAME=health
+        # - HEALTH_CHECK_PASSWORD=please-set-YOUR-OWN-veeeeeery-l0ng-aNd-h4rd-to-gue55-Passw0rd!

@@ -1,0 +1,21 @@
+stylesheets:
+  - href: "/rss.xsl"
+    media: "all"
+    type: "text/xsl"
+headers:
+  "User-Agent": "acab"
+feeds:
+  hsmr-recent-changes:
+    channel:
+      url: https://hsmr.cc/Site/AllRecentChanges
+      title: Latest recent changes in wiki.
+      ttl: 120
+    selectors:
+      items:
+        selector: "div.content > div#wikitext > ul > li"
+      title:
+        selector: "a:first"
+      link:
+        selector: "a:first"
+        extractor: "href"
+
