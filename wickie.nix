@@ -20,10 +20,13 @@
       bots = {
         wickie = {
           feed = "http://localhost:3162/hsmr-recent-changes.rss";
+          delay = 30;
         };
       };
     };
   };
+
+  virtualisation.oci-containers.backend = "docker";
 
   virtualisation.oci-containers.containers."html2rss" = {
     ports = [ "3162:3000" ];

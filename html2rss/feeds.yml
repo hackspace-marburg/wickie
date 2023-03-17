@@ -9,13 +9,17 @@ feeds:
     channel:
       url: https://hsmr.cc/Site/AllRecentChanges
       title: Latest recent changes in wiki.
-      ttl: 120
+      ttl: 30 
     selectors:
       items:
         selector: "div.content > div#wikitext > ul > li"
       title:
         selector: "a:first"
+        post_process:
+          name: 'template'
+          string: '%{self} (%{author})'
       link:
         selector: "a:first"
         extractor: "href"
-
+      author:
+        selector: 'a:nth-child(2)'
